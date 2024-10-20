@@ -4,7 +4,12 @@
       <div class="home">
         <div class="home--info">
           <h1>Akbarov Muhammadaziz</h1>
-          <h2>I'm a Frontend Developer</h2>
+          <h2>
+            I'm a
+            <span style="--i: 3" data-text="Web Developer">Web Developer</span>
+            <span style="--i: 2" data-text="Frontend Developer">Frontend Developer</span>
+            <span style="--i: 1" data-text="Software Engineer">Software Engineer</span>
+          </h2>
           <p>
             I’m Muhammadaziz, a frontend developer with one year of experience working on
             various web projects. My expertise lies in React.js and Vue.js, where I focus
@@ -64,8 +69,53 @@
   }
 
   &--info h2 {
+    display: inline-block;
     font-size: 32px;
     margin-top: -10px;
+
+    span {
+      position: relative;
+      display: inline-block;
+      color: transparent;
+      -webkit-text-stroke: 0.7px #7cf03d;
+      animation: display-text 9s linear infinite;
+      animation-delay: calc(-3s * var(--i));
+
+      &::before {
+        content: attr(data-text);
+        position: absolute;
+        width: 0;
+        border-right: 2px solid #7cf03d;
+        color: #7cf03d;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: fill-text 2.4s linear infinite;
+      }
+    }
+    @keyframes fill-text {
+      0%,
+      20% {
+        width: 0;
+      }
+      50%,
+      80% {
+        width: 100%;
+      }
+      100% {
+        width: 0;
+      }
+    }
+
+    @keyframes display-text {
+      0%,
+      30% {
+        display: inline;
+      }
+      31%,
+      100% {
+        display: none;
+      }
+    }
   }
   &--info p {
     font-size: 16px;
