@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import "boxicons";
+// import "boxicons";
 </script>
 
 <style lang="scss" scoped>
